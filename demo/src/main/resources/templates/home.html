@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-       .container{
-        margin: auto;
-        width: 50%;
-        padding: 30px;
-        background: #e2e2e2;
-       }
+	<link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
 
-    </style>
+    <link rel="stylesheet" data-th-href="@{'/css/output1.css'}" />
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <div class="container">
+    <div class="  bg-gray-200 w-1/2 p-4 flex flex-col justify-center items-center space-y-3 mx-auto mt-4" >
 
-        <h1 data-th-text="${name}"> Welcome to home page</h1>
-        <p>Youtube Channel: <span data-th-text="${Vaibhav}"></span> </p>
-        <p>GitHub Repository <span data-th-text="${git}"></span></p>
+        <h1  class="text-2xl font-bold" data-th-text="${name}"> Welcome to home page</h1>
+        <p class="text-xl text-gray-700">Youtube Channel: <span data-th-text="${Vaibhav}"></span> </p>
+        <p>GitHub Repository <span data-th="${git}">https://github.com/Vaibhav9172364566-tambe</span></p>
 
         <a th:href= "${git}">Click here to open </a>
-        <p>vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv</p>
+        <p class="text-gray-600" >vvvvvvvvvvvvvvvvvvvvvvvvvvvvvv Tambe one </p>
+        
+           <div>
+			<button class="px-3 py-3 rounded bg-blue-700 text-white hover:bg-blue-600">Click Here</button>
+
+		   </div>
     </div>
+
+<!--	 flow bite content -->
+
+
+
+
+	
+	
+	<script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
     
 </body>
 </html>

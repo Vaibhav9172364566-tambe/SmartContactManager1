@@ -3,6 +3,9 @@ package com.scm.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @Controller
 public class PageController {
@@ -21,5 +24,21 @@ public class PageController {
 
         return "home";
     }
+    
+    // about route
+        @RequestMapping("/about")
+        public String aboutPage() {
+        	System.out.println("About page loading");
+            return "about";
+        }
+        
+        //Services
+        @RequestMapping("/services")
+        public String servicesPage() {
+        	System.out.println("services page loading");
+            return "services";
+        }
+        
+        
 
 }
