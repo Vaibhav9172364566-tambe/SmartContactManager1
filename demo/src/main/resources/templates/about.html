@@ -12,11 +12,42 @@
 	<h1>This is about page</h1>
 	<hr>
   
-<!--Using fragment  -->
-  <div class="host-tag" th:replace="~{base :: parent('one','two')}">
+<!--Using fragment  
+ <div class="host-tag" th:replace="~{base :: parent(~{::section})}">
 	
+	<section>
+		<h2>Dynamic Content</h2>
+		<p>Vaibhav Tambe at ekodisagj tq vaijappur </p>
+		<button>click me Dynamic content</button>
+		
+	</section>
 	
   </div>
+  
+  -->
+  
+  
+  
+  <div class="host-tag" th:replace="${isLogin} ? ~{base :: parent(~{::section})} : ~{base :: test(~{::#lotLogin})}">
+  	
+  	<section>
+		<h1>Login </h1>
+   		<h2>Dynamic Content</h2>
+  		<p>Vaibhav Tambe at ekodisagj tq vaijappur </p>
+  		<button>click me Dynamic content</button>
+  		
+  	</section>
+	
+	<section id="lotLogin">
+		
+		<h1>Not login</h1>
+		
+	</section>
+  	
+    </div>
+	
+	
+  
   
 </body>
 

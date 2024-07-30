@@ -40,3 +40,80 @@ https://tailwindcss.com/docs/installation
      
      3} if you want flowbite:include css and js using cdn
      
+     
+     
+     
+     
+     
+     
+///////////////////////////////////////////////////////////
+   How to create fragment
+   
+   <!--fragement are created using     th:fragment="parent(a,y)"
+
+	-->
+<!--fragement are created using     th:fragment="parent(a,y)"
+
+	-->
+<div class="parent-fragement" th:fragment="parent(content)">
+	<h1>This is the fragment page</h1>
+	<p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+
+	
+	<div th:replace="${content}"></div>
+	
+</div>
+
+
+
+
+<div th:fragment="test(content)">
+	
+	
+	<div th:replace="${content}"></div>
+	
+</div>
+
+   
+   
+   
+   
+   
+   How to insert and replace
+   
+   
+   <h1>This is services page</h1>
+  <div th:replace="~{base :: parent(~{::#s-containt2})}">
+	<section id="main-containt">
+		<h1>This is dynamic services</h1>
+	</section>
+	
+	<section id="s-containt2">
+			<h1>This is dynamic services page 2</h1>
+		</section>
+	
+	</div>  
+	
+	
+	
+	
+	
+	
+	Expresion:::::::::::::
+	
+	<div class="host-tag" th:replace="${isLogin} ? ~{base :: parent(~{::section})} : ~{base :: test(~{::#lotLogin})}">
+  	
+  	<section>
+		<h1>Login </h1>
+   		<h2>Dynamic Content</h2>
+  		<p>Vaibhav Tambe at ekodisagj tq vaijappur </p>
+  		<button>click me Dynamic content</button>
+  		
+  	</section>
+	
+	<section id="lotLogin">
+		
+		<h1>Not login</h1>
+		
+	</section>   
+     
