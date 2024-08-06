@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.scm.entities.User;
+import com.scm.forms.UserForm;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+
 
 @Controller
 public class PageController {
@@ -40,7 +46,45 @@ public class PageController {
         	System.out.println("services page loading");
             return "services";
         }
+        @GetMapping("/contact")
+        public String contact() {
+            return new String("contact");
+        }
         
+        @GetMapping("/login")
+        public String login() {
+            return new String("login");
+        }
+        @GetMapping("/register")
+        public String register(Model model) {
+        	UserForm userFrom=new UserForm();
+        	//Default are insert karu shakto
+        	
+        	 
+        	model.addAttribute("userForm",userFrom);
+        	
+        	
+        	
+            return  "register";
+        }
         
-
+        //Processing register
+        
+        @RequestMapping(value ="/do-register",method = RequestMethod.POST)
+        public String processRegister() {
+        	
+        	System.out.println("Processing  registration");
+        	
+        	//fetch the data
+        	//useForm
+        	
+        	
+        	// validate  from data
+        	//save to db
+        	//message="Registsration"
+        	//redirect login page
+        	
+        	return "redirect:/register";
+        }
+        
 }

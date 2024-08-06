@@ -1,3 +1,5 @@
+<!--
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,9 +26,6 @@
 	
   </div>
   
-  -->
-  
-  
   
   <div class="host-tag" th:replace="${isLogin} ? ~{base :: parent(~{::section})} : ~{base :: test(~{::#lotLogin})}">
   	
@@ -43,12 +42,31 @@
 		<h1>Not login</h1>
 		
 	</section>
-  	
     </div>
+</body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+ 
+<head>
+	<title>About Page</title>
+ 
+</head>
+
+<body>
 	
+	<div id="content">
+		<h1>This is welcome about page</h1>
+		<p>Vaibhav</p>
+	</div>
+	<script>
+		console.log("About page............................")
+	</script>
+	<script>console.log("Second...")</script>
 	
-  
-  
 </body>
 
 </html>

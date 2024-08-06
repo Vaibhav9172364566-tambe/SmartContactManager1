@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,8 +6,8 @@
     <title>Document</title>
 	<link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" data-th-href="@{'/css/output1.css'}" />
 	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+	<link rel="stylesheet" data-th-href="@{'/css/output1.css'}" />
 
 </head>
 <body>
@@ -26,7 +26,7 @@
 		   </div>
     </div>
 
-<!--	 flow bite content -->
+	 flow bite content 
 
 
 
@@ -37,4 +37,35 @@
 
     
 </body>
+</html>
+
+
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::title},~{::script})}">
+ 
+<head>
+	<title>Home Page</title>
+ 
+</head>
+
+<body>
+	
+	<div id="content">
+		<h1>This is welcome Home page</h1>
+		<p>Vaibhav</p>
+	</div>
+	<script>
+		console.log("Home page............................")
+	</script>
+	
+</body>
+
 </html>
