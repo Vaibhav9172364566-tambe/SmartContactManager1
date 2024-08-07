@@ -1,6 +1,5 @@
-package com.scm.entities;
+package com.scm.entity;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,14 +11,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
-public class SocialLink {
-
+public class SocalLink {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -28,5 +26,5 @@ public class SocialLink {
 	@ManyToOne
 	private Contact contact;
 	
-	
+
 }

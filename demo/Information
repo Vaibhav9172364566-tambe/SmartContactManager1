@@ -116,4 +116,11 @@ https://tailwindcss.com/docs/installation
 		<h1>Not login</h1>
 		
 	</section>   
+	
+	
+	
+	//  DB store auto and no need getter and setter
+	
+	Lambok are use to store database and  directly use the getter and setter and constructor  
+	With the @Getter............
      
