@@ -1,11 +1,14 @@
 package com.scm.entity;
 
-import java.util.ArrayList;
+import java.util.ArrayList;import org.hibernate.metamodel.ValueClassification;
+
 import java.util.*;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -43,6 +46,8 @@ public class User<UserBuilder> {
 	private boolean eamilVerified=false;
 	private boolean phoneVerifies=false;
 	
+	
+	@Enumerated(value = EnumType.STRING)
 	//SELF,GOOGLE FB,GITHUB
 	private Providers provider=Providers.SELF;
 	private  String  providerUserId;
@@ -163,97 +168,8 @@ public class User<UserBuilder> {
 		this.contacts = contacts;
 	}
 
-//	
-//
-//	public UserBuilder userId(String userId) {
-//        this.userId = userId;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder name(String name) {
-//        this.name = name;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder email(String email) {
-//        this.email = email;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder password(String password) {
-//        this.password = password;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder about(String about) {
-//        this.about = about;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder profilePic(String profilePic) {
-//        this.profilePic = profilePic;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder phoneNumber(String phoneNumber) {
-//        this.phoneNumber = phoneNumber;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder enabled(boolean enabled) {
-//        this.enabled = enabled;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder eamilVerified(boolean eamilVerified) {
-//        this.eamilVerified = eamilVerified;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder phoneVerifies(boolean phoneVerifies) {
-//        this.phoneVerifies = phoneVerifies;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder provider(Providers provider) {
-//        this.provider = provider;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder providerUserId(String providerUserId) {
-//        this.providerUserId = providerUserId;
-//        return (UserBuilder) this;
-//    }
-//
-//    public UserBuilder contacts(List<Contact> contacts) {
-//        this.contacts = contacts;
-//        return (UserBuilder) this;
-//    }
-//
-//    public User build() {
-//        User user = new User();
-//        user.setUserId(this.userId);
-//        user.setName(this.name);
-//        user.setEmail(this.email);
-//        user.setPassword(this.password);
-//        user.setAbout(this.about);
-//        user.setProfilePic(this.profilePic);
-//        user.setPhoneNumber(this.phoneNumber);
-//        user.setEnabled(this.enabled);
-//        user.setEamilVerified(this.eamilVerified);
-//        user.setPhoneVerifies(this.phoneVerifies);
-//        user.setProvider(this.provider);
-//        user.setProviderUserId(this.providerUserId);
-//        user.setContacts(this.contacts);
-//        return user;
-//    }
-//
-//	public static User builder() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-    
-	
+
+
 	public static class UserBuilder {
         private String userId;
         private String name;

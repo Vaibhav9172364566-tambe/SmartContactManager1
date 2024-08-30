@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.scm.entity.User;
 import com.scm.forms.UserForm;
+import com.scm.helpers.Message;
+import com.scm.helpers.MessageType;
 import com.scm.services.UserServices;
+
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -80,7 +84,7 @@ public class PageController {
         //Processing register
         
         @RequestMapping(value="/do-register",method=RequestMethod.POST)
-        public String processRegister(@ModelAttribute UserForm userForm){
+        public String processRegister(@ModelAttribute UserForm userForm,HttpSession session){
         	System.out.println("Processsssssssssss");
         	
         	//fetch the data
@@ -93,20 +97,42 @@ public class PageController {
         	
        //UserForm  -->  User 
         	
-      User user=User.builder()
-    		  .name(userForm.getName())
-              .email(userForm.getEmail())
-              .password(userForm.getPassword())
-              .about(userForm.getAbout())
-              .phoneNumber(userForm.getPhoneNumber())
-              .profilePic("https://search.brave.com/images?q=default%20profile%20pictuure")
-    		  .build();
-      
-        User savedUser=	userServices.saveUser(user);
-        	
-       System.out.println("saved User success :"); 
+//      User user=User.builder()
+//    		  .name(userForm.getName())
+//              .email(userForm.getEmail())
+//              .password(userForm.getPassword())
+//              .about(userForm.getAbout())
+//              .phoneNumber(userForm.getPhoneNumber())
+//              .profilePic("https://search.brave.com/images?q=default%20profile%20pictuure")
+//    		  .build();
+//      
+//        User savedUser=	userServices.saveUser(user);
+//        	
+    
+       User user= 	new User();
+       user.setName(userForm.getName());
+       user.setEmail(userForm.getEmail());
+       user.setPassword(userForm.getPassword());
+       user.setAbout(userForm.getAbout());
+       user.setPhoneNumber(userForm.getPhoneNumber());
+
+      // user.setEnabled(true);
+       user.setProfilePic("https://search.brave.com/images?q=default%20profile%20pictuure");
+       
+       User savedUser=userServices.saveUser(user);
+        	System.out.println("saved User success :"); 
         	// messsage ="Register Succefully"
+        	
+        	//add the message
+        	
+        	
+        	 Message message =  Message.builder()
+        			 .content("Registration Successful")
+                     .type(MessageType.blue) // Use the correct enum value
+                     .build();        	
+           session.setAttribute("meassage", " Registration Succefull");
         	//redirction login page
+           //
          	
         	
         	return "redirect:/register";
