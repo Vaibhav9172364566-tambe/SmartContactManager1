@@ -8,12 +8,14 @@ import org.hibernate.validator.internal.util.logging.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.scm.entity.User;
 import com.scm.repositories.UserRepo;
 import com.scm.services.UserServices;
 import com.scm.helper.*;
+import com.scm.helpers.AppConstants;
 
 @Service
 public class UserServiceImpl implements UserServices
@@ -21,6 +23,9 @@ public class UserServiceImpl implements UserServices
 	
 	@Autowired
 	private UserRepo userRepo;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 
 	private Logger logger= org.slf4j.LoggerFactory.getLogger(this.getClass());	
@@ -35,6 +40,12 @@ public class UserServiceImpl implements UserServices
 		//password encode
 		//user.setPassword(userId)
 		
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		
+		//set the user row
+		
+		user.setRoleList(List.of(AppConstants.ROLE_USER));
+		logger.info(user.getProvider().toString());
 		return userRepo.save(user);
 	}
 
