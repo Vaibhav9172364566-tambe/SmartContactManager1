@@ -27,7 +27,12 @@ public class PageController {
 	@Autowired
 	private UserServices userServices;
 	
-
+	     @GetMapping("/")      
+         public String index() {
+	    	 return "redirect:/home";
+        	
+        }
+	
     @RequestMapping("/home")
     public String home(Model model){
         
@@ -39,7 +44,7 @@ public class PageController {
         model.addAttribute("Vaibhav", "Sambhajinagar");
         model.addAttribute("git", "https://github.com/Vaibhav9172364566-tambe");
 
-
+//
         return "home";
     }
     
