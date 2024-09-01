@@ -53,12 +53,19 @@
                   placeholder="Enter here"
                   required
                 />
+				
+				
+				<p  
+				data-th-if="${#fields.hasErrors('name')}"
+				data-th-errors="*{name}"
+				class="text-red-600 py-2">User is required</p>
 
                 <p
                   data-th-if="${#fields.hasErrors('name')}"
                   data-th-errors="*{name}"
                   class="text-red-600 px-1 py-2"
                 >
+				
                   Name is required
                 </p>
               </div>

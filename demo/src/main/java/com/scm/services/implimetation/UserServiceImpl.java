@@ -14,8 +14,9 @@ import org.springframework.stereotype.Service;
 import com.scm.entity.User;
 import com.scm.repositories.UserRepo;
 import com.scm.services.UserServices;
-import com.scm.helper.*;
+import com.scm.helpers.*;
 import com.scm.helpers.AppConstants;
+import com.scm.helpers.ResourceNotFoundException;
 
 @Service
 public class UserServiceImpl implements UserServices
